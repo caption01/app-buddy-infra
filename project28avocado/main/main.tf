@@ -5,6 +5,12 @@ terraform {
       version = "~> 4.0"
     }
   }
+
+  backend "s3" {
+    bucket = "terraform-appbuddy"
+    key    = "app/project28-avocado"
+    region = "ap-southeast-1"
+  }
 }
 
 provider "aws" {
