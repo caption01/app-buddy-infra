@@ -2,8 +2,8 @@ resource "aws_s3_bucket" "app_bucket" {
   bucket = var.bucket["name"]
 
   tags = {
-    App      = "AvocadoShop"
-    Provider = "AppBuddy"
+    App      = var.tag_app
+    Provider = var.tag_provider
   }
 }
 

@@ -20,5 +20,15 @@ provider "aws" {
 module "s3" {
   source = "../modules/s3"
 
-  bucket = var.bucket
+  bucket       = var.bucket
+  tag_app      = var.tag_app
+  tag_provider = var.tag_provider
+}
+
+module "codecommit" {
+  source = "../modules/codecommit"
+
+  repo_name    = var.repo_name
+  tag_app      = var.tag_app
+  tag_provider = var.tag_provider
 }
