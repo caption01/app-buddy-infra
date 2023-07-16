@@ -11,7 +11,8 @@ provider "aws" {
   region = "ap-southeast-1"
 }
 
-resource "aws_codecommit_repository" "test" {
-  repository_name = "MyTestRepository"
-  description     = "This is the Sample App Repository"
+module "s3" {
+  source = "../modules/s3"
+
+  bucket = var.bucket
 }
