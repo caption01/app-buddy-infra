@@ -4,5 +4,8 @@
   "editor.formatOnSave": true,
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "yaml.schemas": {
+    "kubernetes": "*.kube.yaml"
   }
 }
