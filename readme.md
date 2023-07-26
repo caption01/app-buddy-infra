@@ -2,4 +2,4 @@
 
 ### Setup Jenkins Runner and github webhook.
 
-test ja
+TODO: Adding how to setup jenkins runner with github webhook
