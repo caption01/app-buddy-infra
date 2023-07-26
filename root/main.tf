@@ -29,3 +29,17 @@ module "ec2" {
 
   depends_on = [module.vpc-subnet]
 }
+
+module "alb" {
+  source = "./modules/alb"
+
+  subnet_public_id      = module.vpc-subnet.subnet_public_id
+  subnet_private_id     = module.vpc-subnet.subnet_private_id
+  aws_security_group_id = module.vpc-subnet.aws_security_group_id
+  vpc_id                = module.vpc-subnet.vpc_id
+
+  ec2_instance_id = module.ec2.ec2_instance_id
+
+  depends_on = [module.vpc-subnet, module.ec2]
+}
+
