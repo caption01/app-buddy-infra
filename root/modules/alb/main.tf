@@ -32,6 +32,16 @@ resource "aws_lb_target_group" "target_group" {
   vpc_id      = var.vpc_id
   target_type = "instance"
 
+  health_check {
+    healthy_threshold   = 3   # Number of consecutive successful health checks required to be considered healthy
+    unhealthy_threshold = 2   # Number of consecutive failed health checks required to be considered unhealthy
+    timeout             = 5   # Amount of time, in seconds, during which no response means a failed health check
+    interval            = 30  # Interval between health checks, in seconds
+    path                = "/" # Replace with the actual path to your health check endpoint
+    port                = 8080
+    matcher             = "200-399" # Optional. HTTP codes indicating success. Default is "200-299".
+  }
+
   tags = {
     App = "jenkins"
   }
